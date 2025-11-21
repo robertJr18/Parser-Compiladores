@@ -3,10 +3,6 @@ package com.unimag.parser.astNodes;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Nodo del AST que representa una función trigonométrica
- * Funciones soportadas: sin, cos, tan
- */
 public class FunctionNode extends Node {
     private final String name;
     private final Node argument;

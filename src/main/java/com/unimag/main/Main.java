@@ -36,61 +36,18 @@ import java.util.Scanner;
 public class Main {
     private static final String BANNER = """
             ╔════════════════════════════════════════════════════════════╗
-            ║   PARSER Y EVALUADOR DE EXPRESIONES TRIGONOMÉTRICAS       ║
+            ║   PARSER Y EVALUADOR DE EXPRESIONES TRIGONOMÉTRICAS        ║
             ║                                                            ║
-            ║   Operadores: +, -, *, /, ^                               ║
-            ║   Funciones:  sin, cos, tan                               ║
-            ║   Constantes: pi, e                                       ║
-            ║   Variables:  x, y, z, etc.                               ║
+            ║   Operadores: +, -, *, /, ^                                ║
+            ║   Funciones:  sin, cos, tan                                ║
+            ║   Constantes: pi, e                                        ║
+            ║   Variables:  x, y, z, etc.                                ║
             ║                                                            ║
-            ║   Comandos:   'exit' para salir                           ║
-            ║               'help' para ayuda                           ║
-            ║               'test' para ejecutar pruebas                ║
+            ║   Comandos:   'exit' para salir                            ║
+            ║               'test' para ejecutar pruebas                 ║
             ╚════════════════════════════════════════════════════════════╝
             """;
 
-    private static final String HELP = """
-
-            AYUDA - Parser de Expresiones Trigonométricas
-            ===============================================
-
-            OPERADORES SOPORTADOS:
-              +, -        Suma y resta
-              *, /        Multiplicación y división
-              ^           Potencia (asociatividad derecha: 2^3^2 = 2^(3^2))
-              -           Negación unaria (-2^2 = -4)
-
-            FUNCIONES TRIGONOMÉTRICAS:
-              sin(x)      Seno (en radianes)
-              cos(x)      Coseno (en radianes)
-              tan(x)      Tangente (en radianes)
-
-            CONSTANTES:
-              pi          π ≈ 3.14159265...
-              e           e ≈ 2.71828182...
-
-            VARIABLES:
-              Cualquier identificador (x, y, z, abc, etc.)
-              El sistema pedirá sus valores automáticamente
-
-            EJEMPLOS:
-              3 + 4 * 2              → 11
-              (3 + 4) * 2            → 14
-              -2^2                   → -4
-              2^3^2                  → 512
-              sin(pi/2)              → 1.0
-              cos(0) + sin(pi)       → 1.0
-              x*2+y  (x=3, y=4)      → 10
-              2*pi                   → 6.28318...
-              e^1                    → 2.71828...
-
-            PRECEDENCIA (mayor a menor):
-              1. Funciones trigonométricas
-              2. Potencia ^
-              3. Negación unaria -
-              4. Multiplicación/División *, /
-              5. Suma/Resta +, -
-            """;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -110,10 +67,6 @@ public class Main {
                     break;
                 }
 
-                if (input.equalsIgnoreCase("help") || input.equalsIgnoreCase("ayuda")) {
-                    System.out.println(HELP);
-                    continue;
-                }
 
                 if (input.equalsIgnoreCase("test") || input.equalsIgnoreCase("pruebas")) {
                     System.out.println("\nEjecutando casos de prueba...");
@@ -129,7 +82,7 @@ public class Main {
                 processExpression(input, scanner);
 
             } catch (Exception e) {
-                System.err.println("\n❌ " + e.getMessage() + "\n");
+                System.err.println("\n " + e.getMessage() + "\n");
             }
         }
 

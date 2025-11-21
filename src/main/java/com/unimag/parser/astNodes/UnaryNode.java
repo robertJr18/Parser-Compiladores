@@ -3,9 +3,6 @@ package com.unimag.parser.astNodes;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Nodo del AST que representa una operación unaria (negación)
- */
 public class UnaryNode extends Node {
     private final char operator;
     private final Node expression;

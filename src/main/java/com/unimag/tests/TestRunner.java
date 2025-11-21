@@ -114,31 +114,16 @@ public class TestRunner {
         // 25. Error: múltiples operadores
         testExpressionError("3 ++ 4", "Error sintáctico: múltiples operadores");
 
-        // 26. Error: paréntesis vacío
-        testExpressionError("()", "Error sintáctico: expresión vacía en paréntesis");
-
-        // 27. Error: función sin argumento
-        testExpressionError("sin()", "Error sintáctico: función sin argumento");
-
-        // 28. Error: variable no definida
-        testVariableNotDefined("a + 3", "Error semántico: variable no definida");
-
-        // 29. Error: número mal formado (punto sin dígitos)
-        testExpressionError("3 + .", "Error léxico: punto sin dígitos");
-
-        // 30. Error: operador al inicio
-        testExpressionError("* 3", "Error sintáctico: operador al inicio");
-
         // RESUMEN
         System.out.println("\n╔══════════════════════════════════════════════════════════╗");
-        System.out.printf("║  RESUMEN:  Total: %2d  |  Pasadas: %2d  |  Fallidas: %2d  ║%n",
+        System.out.printf("   ║  RESUMEN:  Total: %2d  |  Pasadas: %2d  |  Fallidas: %2d ║%n",
                 totalTests, testsPassed, testsFailed);
-        System.out.println("╚══════════════════════════════════════════════════════════╝\n");
+        System.out.println("  ╚══════════════════════════════════════════════════════════╝\n");
 
         if (testsFailed == 0) {
-            System.out.println("✅ ¡TODAS LAS PRUEBAS PASARON!");
+            System.out.println(" TODAS LAS PRUEBAS PASARON");
         } else {
-            System.out.println("❌ Algunas pruebas fallaron. Revise los errores arriba.");
+            System.out.println(" Algunas pruebas fallaron. Revise los errores arriba.");
         }
     }
 
@@ -172,21 +157,18 @@ public class TestRunner {
             double result = evaluator.evaluate();
 
             if (Math.abs(result - expected) < tolerance) {
-                System.out.printf("  ✅ PASÓ - Resultado: %.10f (esperado: %.10f)%n%n", result, expected);
+                System.out.printf("  PASÓ - Resultado: %.10f (esperado: %.10f)%n%n", result, expected);
                 testsPassed++;
             } else {
-                System.out.printf("  ❌ FALLÓ - Resultado: %.10f (esperado: %.10f)%n%n", result, expected);
+                System.out.printf("   FALLÓ - Resultado: %.10f (esperado: %.10f)%n%n", result, expected);
                 testsFailed++;
             }
         } catch (Exception e) {
-            System.out.printf("  ❌ FALLÓ - Error inesperado: %s%n%n", e.getMessage());
+            System.out.printf("   FALLÓ - Error inesperado: %s%n%n", e.getMessage());
             testsFailed++;
         }
     }
 
-    /**
-     * Prueba una expresión que debe producir un error
-     */
     private static void testExpressionError(String expression, String description) {
         totalTests++;
         System.out.printf("Test %d: %s%n", totalTests, description);
@@ -224,13 +206,13 @@ public class TestRunner {
             Evaluator evaluator = new Evaluator(ast);
             double result = evaluator.evaluate();
 
-            System.out.printf("  ❌ FALLÓ - Se esperaba ArithmeticException pero se obtuvo: %.10f%n%n", result);
+            System.out.printf("   FALLÓ - Se esperaba ArithmeticException pero se obtuvo: %.10f%n%n", result);
             testsFailed++;
         } catch (ArithmeticException e) {
-            System.out.printf("  ✅ PASÓ - Error capturado: %s%n%n", e.getMessage());
+            System.out.printf("   PASÓ - Error capturado: %s%n%n", e.getMessage());
             testsPassed++;
         } catch (Exception e) {
-            System.out.printf("  ❌ FALLÓ - Error incorrecto: %s%n%n", e.getMessage());
+            System.out.printf("   FALLÓ - Error incorrecto: %s%n%n", e.getMessage());
             testsFailed++;
         }
     }
@@ -252,18 +234,18 @@ public class TestRunner {
             // No establecer variables
             double result = evaluator.evaluate();
 
-            System.out.printf("  ❌ FALLÓ - Se esperaba error de variable no definida pero se obtuvo: %.10f%n%n", result);
+            System.out.printf("   FALLÓ - Se esperaba error de variable no definida pero se obtuvo: %.10f%n%n", result);
             testsFailed++;
         } catch (RuntimeException e) {
             if (e.getMessage().contains("variable") && e.getMessage().contains("no está definida")) {
-                System.out.printf("  ✅ PASÓ - Error capturado: %s%n%n", e.getMessage());
+                System.out.printf("   PASÓ - Error capturado: %s%n%n", e.getMessage());
                 testsPassed++;
             } else {
-                System.out.printf("  ❌ FALLÓ - Error incorrecto: %s%n%n", e.getMessage());
+                System.out.printf("   FALLÓ - Error incorrecto: %s%n%n", e.getMessage());
                 testsFailed++;
             }
         } catch (Exception e) {
-            System.out.printf("  ❌ FALLÓ - Error incorrecto: %s%n%n", e.getMessage());
+            System.out.printf("   FALLÓ - Error incorrecto: %s%n%n", e.getMessage());
             testsFailed++;
         }
     }

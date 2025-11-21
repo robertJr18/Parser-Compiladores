@@ -3,9 +3,6 @@ package com.unimag.parser.astNodes;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Nodo del AST que representa una variable
- */
 public class VarNode extends Node {
     private final String identifier;
 

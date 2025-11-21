@@ -3,9 +3,6 @@ package com.unimag.parser.astNodes;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Nodo del AST que representa un número literal
- */
 public class NumberNode extends Node {
     private final double value;
 

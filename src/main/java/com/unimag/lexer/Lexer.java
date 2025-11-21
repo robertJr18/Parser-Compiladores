@@ -2,11 +2,6 @@ package com.unimag.lexer;
 
 import java.util.*;
 
-/**
- * Lexer para expresiones trigonométricas
- * Tokeniza expresiones con operadores aritméticos, funciones trigonométricas,
- * paréntesis, números reales y variables
- */
 public class Lexer {
     private final String input;
     private int position;
@@ -17,19 +12,13 @@ public class Lexer {
             "sin", "cos", "tan", "pi", "e"
     ));
 
-    /**
-     * Constructor del Lexer
-     * @param input Expresión a tokenizar
-     */
+
     public Lexer(String input) {
         this.input = input;
         this.position = 0;
         this.currentChar = input.length() > 0 ? input.charAt(0) : '\0';
     }
 
-    /**
-     * Avanza al siguiente carácter
-     */
     private void advance() {
         position++;
         if (position < input.length()) {

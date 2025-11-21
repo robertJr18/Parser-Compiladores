@@ -3,10 +3,6 @@ package com.unimag.parser.astNodes;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Nodo del AST que representa una operación binaria
- * Operadores soportados: +, -, *, /, ^
- */
 public class BinaryNode extends Node {
     private final char operator;
     private final Node left;
