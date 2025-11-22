@@ -94,7 +94,7 @@ public class Parser {
     }
 
     /**
-     T → U T'
+     T → F T'
      Parsea un término (multiplicación y división)
      */
     private Node parseTerm() {
@@ -103,7 +103,7 @@ public class Parser {
     }
 
     /**
-      T' → * U T' | / U T' | ε
+      T' → * F T' | / F T' | ε
       Parsea el resto de un término (asociatividad izquierda)
      */
     private Node parseTermPrime(Node left) {
