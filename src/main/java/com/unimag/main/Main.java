@@ -144,7 +144,7 @@ public class Main {
                     System.out.println("═══════════════════════════════════════════════════════════\n");
 
                     // 16. Error sintáctico: operador sin operando
-                    testExpressionError("3 + * 4", "Error sintáctico: operador sin operando");
+                    testExpressionError("3+*4", "Error sintáctico: operador sin operando");
 
                     // 17. Error léxico: múltiples puntos
                     testExpressionError("5..3", "Error léxico: número mal formado");
@@ -162,13 +162,13 @@ public class Main {
                     testDivisionByZero("1/0", "Error de ejecución: división por cero");
 
                     // 23. Error: carácter inválido
-                    testExpressionError("3 @ 4", "Error léxico: carácter inválido");
+                    testExpressionError("3@4", "Error léxico: carácter inválido");
 
                     // 24. Error: función sin paréntesis
-                    testExpressionError("sin 1", "Error sintáctico: función sin paréntesis");
+                    testExpressionError("sin1", "Error sintáctico: función sin paréntesis");
 
                     // 25. Error: múltiples operadores
-                    testExpressionError("3 ++ 4", "Error sintáctico: múltiples operadores");
+                    testExpressionError("3++4", "Error sintáctico: múltiples operadores");
 
 
                     continue;
